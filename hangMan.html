@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+
+    <title>Hang Man</title>
+  </head>
+
+
+<body>
+<div class="container">
+    <h1>The Hang Man Game?? </h1>
+
+    <div id="letter"></div>
+    <div id="buttons"></div>
+    <button id="clear">clear</button>
+ 
+    <p> You Hanve <span id="lives"> 4 </span> Lives Left. 
+  <br>
+  There are <span id="numLetters"> 0 </span> Letters In this word.
+</p> 
+<h1 id="WORD">__________</h1>
+<br>
+<div id="letters" >
+        <a id="a">A</a>
+        <a id="b">B</a>
+        <a id="c">C</a>
+        <a id="d">D</a>
+        <a id="e">E</a>
+        <a id="f">F</a>
+        <a id="g">G</a>
+        <a id="h">H</a>
+        <a id="i">I</a>
+        <a id="j">J</a>
+        <a id="k">K</a>
+        <a id="l">L</a>
+        <a id="m">M</a>
+        <a id="n">N</a>
+        <a id="o">O</a>
+        <a id="p">P</a>
+        <a id="q">Q</a>
+        <a id="r">R</a>
+        <a id="s">S</a>
+        <a id="t">T</a>
+        <a id="u">U</a>
+        <a id="v">V</a>
+        <a id="w">W</a>
+        <a id="x">X</a>
+        <a id="y">Y</a>
+        <a id="z">Z</a>
+         </div>  
+</div>
+ 
+
+
+
+
+<script>
+
+Words = {};
+Words.List = [];
+
+Words.List[0] = "";
+Words.List[1] = "";
+Words.List[2] = "";
+Words.List[3] = "";
+Words.List[4] = "";
+Words.List[5] = "";
+Words.List[6] = "";
+Words.List[7] = "";
+Words.List[8] = "";
+Words.List[9] = "";
+
+
+Words.List[0] = "lion";
+Words.List[1] = "Seal";
+Words.List[2] = "Tiger";
+Words.List[3] = "Tree";
+Words.List[4] = "Bird";
+Words.List[5] = "Pig";
+Words.List[6] = "Fairy";
+Words.List[7] = "Snail";
+Words.List[8] = "Snake";
+Words.List[9] = "Dog";
+
+Words.Length = Words.List.length;
+
+
+
+
+Main = {};
+Main.WordArray = [];
+Main.WordUArray = [];
+
+Main.Lives = 4 ; 
+Main.NumInWordBank = Words.Length;
+
+Main.Word = "test";
+Main.WordU = "";
+
+// Functions Start Here 
+
+Main.PullWord = function(){
+    Main.Word = Words.List[(Math.floor(Math.random()*Main.NumInWordBank))];
+}
+Main.SetUnderline = function(){
+    Main.PullWord();
+    for (i= 0; i <Main.Word.length; i++){
+        Main.WordArray[i] = Main.Word.charAt(i);
+        Main.WordUArray[i] = "_";
+    }
+    Main.WordU = Main.WordUArray.join("");
+    document.getElementById("WORD").innerHTML = Main.WordU;
+    document.getElementById("numLetters").innerHTML = Main.Word.length;
+    }
+    Main.SetUnderline();
+
+
+</script>
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
+
+  </body>
+</html>
